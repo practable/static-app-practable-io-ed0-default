@@ -1,0 +1,1 @@
+import{_ as o,o as e,c as t}from"./index-7ac6093d.js";const n={};function c(r,s){return e(),t("h1",null,"Oops, it looks like the page you're looking for doesn't exist.")}const l=o(n,[["render",c]]);export{l as default};

@@ -1,0 +1,102 @@
+{
+  "name": "pvna09",
+  "version": "0.0",
+  "date": 1677658711,
+  "aud": "https://static.practable.io/ui/pvna2-1.0",
+  "images": [
+    {
+      "for": "dut",
+      "src": "https://app.practable.io/ed0/static/images/experiments/pvna09-0.0/dut.png",
+      "alt": "PocketVNA with 8-way RF switches, SOLT two-port calibration and four DUT",
+      "figcaption": "Photo of the DUT (filter and couplers)",
+      "width": 480,
+      "height": 480
+    },
+    {
+      "for": "dut1",
+      "src": "https://app.practable.io/ed0/static/images/experiments/pvna09-0.0/dut1.png",
+      "alt": "PocketVNA measuring filter",
+      "figcaption": "Filter measurement on port 1 and 2",
+      "width": 480,
+      "height": 480
+    },
+    {
+      "for": "dut2",
+      "src": "https://app.practable.io/ed0/static/images/experiments/pvna09-0.0/dut2.png",
+      "alt": "PocketVNA measuring coupler port 1 and 2",
+      "figcaption": "Coupler measurement on port 1 and 4",
+      "width": 480,
+      "height": 480
+    },
+    {
+      "for": "dut3",
+      "src": "https://app.practable.io/ed0/static/images/experiments/pvna09-0.0/dut3.png",
+      "alt": "PocketVNA measuring coupler port 1 and 4",
+      "figcaption": "Coupler measurement on port 1 and 2",
+      "width": 480,
+      "height": 480
+    },
+    {
+      "for": "dut4",
+      "src": "https://app.practable.io/ed0/static/images/experiments/pvna09-0.0/dut4.png",
+      "alt": "PocketVNA measuring coupler port 1 and 3",
+      "figcaption": "Coupler measurement on port 1 and 3",
+      "width": 480,
+      "height": 480
+    },
+    {
+      "for": "sparam",
+      "src": "https://app.practable.io/ed0/static/images/experiments/pvna09-0.0/sparam2.svg",
+      "alt": "Line drawing of two port measurements showing stimulus (in), and response (out)",
+      "figcaption": "Diagram of two-port S-parameter measurements",
+      "width": 480,
+      "height": 480
+    }
+  ],
+  "parameters": [
+    { "for": "ui", "are": [{ "k": "title", "v": "Couplers and Filters" }] },
+    {
+      "for": "dut1",
+      "are": [
+        { "k": "name", "v": "Two-port filter" },
+        { "k": "type", "v": "filter" },
+        { "k": "port1", "v": "port1" },
+        { "k": "port1", "v": "port2" }
+      ]
+    },
+    {
+      "for": "dut2",
+      "are": [
+        { "k": "name", "v": "Four-port coupler (1-2)" },
+        { "k": "type", "v": "Four-port coupler" },
+        { "k": "port1", "v": "port1" },
+        { "k": "port1", "v": "port4" }
+      ]
+    },
+    {
+      "for": "dut3",
+      "are": [
+        { "k": "name", "v": "Four-port coupler (1-4)" },
+        { "k": "type", "v": "Four-port coupler" },
+        { "k": "port1", "v": "port1" },
+        { "k": "port1", "v": "port2" }
+      ]
+    },
+    {
+      "for": "dut4",
+      "are": [
+        { "k": "name", "v": "Four-port coupler (1-3)" },
+        { "k": "type", "v": "Four-port coupler" },
+        { "k": "port1", "v": "port1" },
+        { "k": "port1", "v": "port3" }
+      ]
+    },
+    {
+      "for": "board",
+      "are": [
+        { "k": "material", "v": "FR4" },
+        { "k": "thickness", "v": "1.6mm" }
+      ]
+    }
+  ]
+}

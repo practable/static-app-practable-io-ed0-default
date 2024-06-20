@@ -6,7 +6,7 @@
   "images": [
     {
       "for": "dut",
-      "src": "https://assets.practable.io/images/experiments/pvna00-0.0/dut.png",
+      "src": "https://app.practable.io/ed0/static/images/experiments/pvna00-0.0/dut.png",
       "alt": "PocketVNA with 4-way RF switch and 40mm transmission line",
       "figcaption": "Photo of the DUT (40mm Transmission Line)",
       "width": 300,
@@ -14,7 +14,7 @@
     },
     {
       "for": "sparam",
-      "src": "https://assets.practable.io/images/experiments/pvna00-0.0/sparam.svg",
+      "src": "https://app.practable.io/ed0/static/images/experiments/pvna00-0.0/sparam.svg",
       "alt": "Line drawing of one port measurement showing stimulus (in), and response (out)",
       "figcaption": "Diagram of one-port (S11) measurement",
       "width": 300,

@@ -24,7 +24,7 @@
       "for": "dut2",
       "src": "https://app.practable.io/ed0/static/images/experiments/pvna08-0.0/dut2.svg",
       "alt": "PocketVNA measuring coupler port 1 and 2",
-      "figcaption": "Coupler measurement on port 1 and 4",
+      "figcaption": "Coupler measurement on port 1 and 2",
       "width": 480,
       "height": 480
     },
@@ -32,7 +32,7 @@
       "for": "dut3",
       "src": "https://app.practable.io/ed0/static/images/experiments/pvna08-0.0/dut3.svg",
       "alt": "PocketVNA measuring coupler port 1 and 4",
-      "figcaption": "Coupler measurement on port 1 and 2",
+      "figcaption": "Coupler measurement on port 1 and 4",
       "width": 480,
       "height": 480
     },

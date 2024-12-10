@@ -62,7 +62,7 @@
         { "k": "type", "v": "filter" },
         { "k": "port1", "v": "port1" },
         { "k": "port1", "v": "port2" },
-        { "k": "length", "v": "45mm" }
+        { "k": "length", "v": "70mm" }
       ]
     },
     {
@@ -72,7 +72,7 @@
         { "k": "type", "v": "Four-port coupler" },
         { "k": "port1", "v": "port1" },
         { "k": "port1", "v": "port4" },
-        { "k": "outer", "v": "31mm" }
+        { "k": "outer", "v": "27mm" }
       ]
     },
     {
@@ -82,7 +82,7 @@
         { "k": "type", "v": "Four-port coupler" },
         { "k": "port1", "v": "port1" },
         { "k": "port1", "v": "port2" },
-        { "k": "outer", "v": "31mm" }
+        { "k": "outer", "v": "27mm" }
       ]
     },
     {
@@ -92,7 +92,7 @@
         { "k": "type", "v": "Four-port coupler" },
         { "k": "port1", "v": "port1" },
         { "k": "port1", "v": "port3" },
-        { "k": "outer", "v": "31mm" }
+        { "k": "outer", "v": "27mm" }
       ]
     },
     {

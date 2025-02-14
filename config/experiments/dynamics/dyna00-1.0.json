@@ -1,0 +1,19 @@
+{
+    "name": "dyna00",
+    "version": "1.0",
+    "date": 1739449599,
+    "aud": "https://app.practable.io/ed0/dynamics-default-1.0",
+    "images": [],
+    "parameters": {
+        "ui": {
+                "hardware": "Dynamics Lab",
+                "short": "dyna00",
+                "m": "400g",
+                "offset": "50mm",
+                "l": "400mm",
+                "w": "40mm",
+                "t": "3mm",
+                "density": "7850kg/m3"
+             }
+    }
+}

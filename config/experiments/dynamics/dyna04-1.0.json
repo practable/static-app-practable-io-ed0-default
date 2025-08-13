@@ -1,5 +1,5 @@
 {
-    "name": "dyna00",
+    "name": "dyna04",
     "version": "1.0",
     "date": 1739449599,
     "aud": "https://app.practable.io/ed0/dynamics-default-1.0",
@@ -7,7 +7,7 @@
     "parameters": {
         "ui": {
                 "hardware": "Dynamics Lab",
-                "short": "dyna00",
+                "short": "dyna04",
                 "m": "452g",
                 "offset": "50mm",
                 "l": "400mm",

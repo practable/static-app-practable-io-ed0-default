@@ -1,0 +1,16 @@
+{
+    "name": "ripp00",
+    "version": "1.0",
+    "date": 1756912229,
+    "aud": "https://app.practable.io/ed0/ripple-default-1.0",
+    "images": [],
+    "parameters": {
+        "ui": {
+                "hardware": "Ripple Tank",
+                "short": "ripp00",
+                "l": "30cm",
+                "w": "25cm",
+                "liquid": "antifreeze"
+             }
+    }
+}

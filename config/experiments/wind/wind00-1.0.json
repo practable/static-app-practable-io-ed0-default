@@ -1,0 +1,13 @@
+{
+    "name": "wind00",
+    "version": "1.0",
+    "date": 1762439952,
+    "aud": "https://app.practable.io/ed0/wind-default-1.0",
+    "images": [],
+    "parameters": {
+        "ui": {
+                "hardware": "Wind Turbine",
+                "short": "wind00"
+             }
+    }
+}

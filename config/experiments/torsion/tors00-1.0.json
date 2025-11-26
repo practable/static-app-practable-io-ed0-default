@@ -10,7 +10,8 @@
                 "short": "tors00",
                 "material": "aluminium",
                 "diameter": "6.35mm",
-                "section": "bar"
+                "section": "bar",
+                "servoMax": 20
              }
     }
 }

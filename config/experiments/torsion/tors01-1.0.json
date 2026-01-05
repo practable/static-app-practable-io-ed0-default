@@ -1,1 +1,17 @@
-{"name": "tors01", "version": "1.0", "date": 1764078186, "aud": "https://app.practable.io/ed0/torsion-default-1.0", "images": [], "parameters": {"ui": {"hardware": "Torsion Lab", "short": "tors01", "material": "acrylic", "diameter": "6mm", "section": "bar", "servoMax": 15}}}
+{
+    "name": "tors01",
+    "version": "1.0",
+    "date": 1764078186,
+    "aud": "https://app.practable.io/ed0/torsion-default-1.0",
+    "images": [],
+    "parameters": {
+        "ui": {
+            "hardware": "Torsion Lab",
+            "short": "tors01",
+            "material": "acrylic",
+            "diameter": "6.05mm",
+            "section": "bar",
+            "servoMax": 15
+        }
+    }
+}

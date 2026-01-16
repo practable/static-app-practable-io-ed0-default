@@ -12,7 +12,7 @@
             "d": "75mm",
             "num_blades": "2",
             "liquid": "glycerol",
-            "max_rpm": "380"
+            "max_rpm": "350"
         }
     }
 }

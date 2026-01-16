@@ -1,1 +1,18 @@
-{"name": "stir09", "version": "1.0", "date": 1758544330, "aud": "https://app.practable.io/ed0/stirring-default-1.0", "images": [], "parameters": {"ui": {"hardware": "Stirring Lab", "short": "stir09", "h": "20mm", "d": "75mm", "num_blades": "4", "liquid": "glycerol"}}}
+{
+    "name": "stir09",
+    "version": "1.0",
+    "date": 1758544330,
+    "aud": "https://app.practable.io/ed0/stirring-default-1.0",
+    "images": [],
+    "parameters": {
+        "ui": {
+            "hardware": "Stirring Lab",
+            "short": "stir09",
+            "h": "20mm",
+            "d": "75mm",
+            "num_blades": "4",
+            "liquid": "glycerol",
+            "max_rpm": "380"
+        }
+    }
+}

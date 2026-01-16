@@ -11,7 +11,8 @@
                 "h": "40mm",
                 "d": "70mm",
                 "num_blades": "4",
-                "liquid": "glycerine"
+                "liquid": "glycerine",
+                "max_rpm": "380"
              }
     }
 }

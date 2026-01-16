@@ -12,7 +12,9 @@
             "d": "75mm",
             "num_blades": "4",
             "liquid": "vegetable glycerine",
-            "max_rpm": "350"
+            "max_rpm": "350",
+            "radius": "40mm",
+            "k": "39.7N/m"
         }
     }
 }

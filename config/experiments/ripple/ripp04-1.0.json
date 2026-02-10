@@ -1,5 +1,5 @@
 {
-    "name": "ripp00",
+    "name": "ripp04",
     "version": "1.0",
     "date": 1756912229,
     "aud": "https://app.practable.io/ed0/ripple-default-1.0",
@@ -7,7 +7,7 @@
     "parameters": {
         "ui": {
                 "hardware": "Ripple Tank",
-                "short": "ripp00",
+                "short": "ripp04",
                 "liquid": "deionised water",
                 "depth": "9mm",
                 "dipperType": "single point",

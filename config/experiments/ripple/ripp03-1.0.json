@@ -9,13 +9,14 @@
                 "hardware": "Ripple Tank",
                 "short": "ripp03",
                 "liquid": "deionised water",
-                "depth": "9mm",
+                "depth": "10mm",
                 "dipperType": "single point",
                 "dipperSeparation": "NA",
                 "tankSetup": "empty",
                 "maxFrequency": "99",
-                "maxAmplitude": "50",
-                "maxBrightness": "100"
+                "maxAmplitude": "15",
+                "maxBrightness": "100",
+                "defaultAmplitude": "10"
              }
     }
 }

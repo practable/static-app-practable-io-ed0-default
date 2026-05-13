@@ -15,9 +15,13 @@
                 "pitchMin":26,
                 "pitchMax": 60,
                 "pitchStep": 1,
+                "pitchRangeDeg": 30,
+                "pitchStartDeg": 60,
                 "yawMin": 26,
                 "yawMax": 124,
-                "yawStep": 1
+                "yawStep": 1,
+                "yawRangeDeg": 90,
+                "yawStartDeg": 0
              }
     }
 }

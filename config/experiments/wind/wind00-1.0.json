@@ -7,7 +7,17 @@
     "parameters": {
         "ui": {
                 "hardware": "Wind Turbine",
-                "short": "wind00"
+                "short": "wind00",
+                "numCams": 1,
+                "fanMin": 23,
+                "fanMax": 50,
+                "fanStep": 1,
+                "pitchMin": 0,
+                "pitchMax": 26,
+                "pitchStep": 1,
+                "yawMin": 0,
+                "yawMax": 26,
+                "yawStep": 1
              }
     }
 }

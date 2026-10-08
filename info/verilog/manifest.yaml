@@ -22,7 +22,7 @@ experiments:
     description: "Expecting a change on something not inside the always block?"
     image: week3/always.svg
     design: week3/always.v
-    testbench: week3/tb_always.v
+    testbench: week3/tbv_always.v
     weeks: [3]
     categories: [live]
   # ---- Week 3: Verilog (lecture examples, verbose practice benches) ----

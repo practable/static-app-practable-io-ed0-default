@@ -1,0 +1,27 @@
+{
+    "name": "wind99",
+    "version": "1.0",
+    "date": 1762439952,
+    "aud": "https://app.practable.io/ed0/wind-default-1.0",
+    "images": [],
+    "parameters": {
+        "ui": {
+                "hardware": "Wind Turbine",
+                "short": "wind99",
+                "numCams": 2,
+                "fanMin": 23,
+                "fanMax": 60,
+                "fanStep": 1,
+                "pitchMin":26,
+                "pitchMax": 68,
+                "pitchStep": 1,
+                "pitchRangeDeg": 73,
+                "pitchStartDeg": 22,
+                "yawMin": 24,
+                "yawMax": 124,
+                "yawStep": 1,
+                "yawRangeDeg": 90,
+                "yawStartDeg": 0
+             }
+    }
+}

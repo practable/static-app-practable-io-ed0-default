@@ -21,6 +21,10 @@
 //     vvp tbv_mux2.out
 `timescale 1ns/1ps
 module tbv_mux2;
+    initial begin
+        $dumpfile("dump.vcd");
+        $dumpvars(0, tbv_mux2);
+    end
     reg a, b, sel; wire y; integer i, bad;
     mux2 u (.a(a), .b(b), .sel(sel), .y(y));
     initial begin

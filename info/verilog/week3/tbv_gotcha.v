@@ -22,6 +22,10 @@
 //     vvp tbv_gotcha.out
 `timescale 1ns/1ps
 module tbv_gotcha;
+    initial begin
+        $dumpfile("dump.vcd");
+        $dumpvars(0, tbv_gotcha);
+    end
     reg  [3:0] a, b, u4;
     reg  [4:0] wide;
     reg signed [3:0] p;

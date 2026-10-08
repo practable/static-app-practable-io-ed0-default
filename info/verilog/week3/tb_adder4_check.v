@@ -12,6 +12,10 @@
 //     vvp tb_adder4_check.out
 `timescale 1ns/1ps
 module tb_adder4_check;
+    initial begin
+        $dumpfile("dump.vcd");
+        $dumpvars(0, tb_adder4_check);
+    end
     reg  [3:0] a, b;  reg cin;
     wire [3:0] s;     wire cout;
     integer i, errors;

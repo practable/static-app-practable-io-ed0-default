@@ -22,6 +22,10 @@
 //     vvp tbv_casez.out
 `timescale 1ns/1ps
 module tbv_casez;
+    initial begin
+        $dumpfile("dump.vcd");
+        $dumpvars(0, tbv_casez);
+    end
     reg [3:0] r; wire [1:0] g; wire any; integer i, bad;
     enc u (.r(r), .g(g), .any(any));
     initial begin

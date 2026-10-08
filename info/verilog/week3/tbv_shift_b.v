@@ -22,6 +22,10 @@
 //     vvp tbv_shift_b.out
 `timescale 1ns/1ps
 module tbv_shift_b;
+    initial begin
+        $dumpfile("dump.vcd");
+        $dumpvars(0, tbv_shift_b);
+    end
     reg clk = 0, d = 0; wire q1, q2, q3; integer i;
     shift_b u (.clk(clk), .d(d), .q1(q1), .q2(q2), .q3(q3));
     always #5 clk = ~clk;

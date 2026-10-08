@@ -16,6 +16,10 @@
 `timescale 1ns/1ps
 
 module tb_counter5_answer;
+    initial begin
+        $dumpfile("dump.vcd");
+        $dumpvars(0, tb_counter5_answer);
+    end
     reg clk = 0, rst = 1, en = 0;
     wire [4:0] q;
 

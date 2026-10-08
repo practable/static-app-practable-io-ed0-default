@@ -22,6 +22,10 @@
 //     vvp tbv_seqdet.out
 `timescale 1ns/1ps
 module tbv_seqdet;
+    initial begin
+        $dumpfile("dump.vcd");
+        $dumpvars(0, tbv_seqdet);
+    end
     reg clk = 0, rst = 1, x = 0; wire z;
     integer i, bad;
     seqdet u (.clk(clk), .rst(rst), .x(x), .z(z));

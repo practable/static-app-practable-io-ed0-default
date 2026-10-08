@@ -22,6 +22,10 @@
 //     vvp tbv_act1_fixed.out
 `timescale 1ns/1ns
 module tbv_act1_fixed;
+    initial begin
+        $dumpfile("dump.vcd");
+        $dumpvars(0, tbv_act1_fixed);
+    end
     reg a, b, sel; wire y; integer bad;
     sel2 u (.a(a), .b(b), .sel(sel), .y(y));
     initial begin

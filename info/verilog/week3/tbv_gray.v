@@ -21,6 +21,10 @@
 //     vvp tbv_gray.out
 `timescale 1ns/1ps
 module tbv_gray;
+    initial begin
+        $dumpfile("dump.vcd");
+        $dumpvars(0, tbv_gray);
+    end
     reg clk = 0, rst = 1, en = 0; wire [1:0] q; wire z;
     integer i, bad; reg [1:0] prev;
     gray2 u (.clk(clk), .rst(rst), .en(en), .q(q), .z(z));

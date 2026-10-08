@@ -22,6 +22,10 @@
 //     vvp tbv_fa_gate.out
 `timescale 1ns/1ps
 module tbv_fa_gate;
+    initial begin
+        $dumpfile("dump.vcd");
+        $dumpvars(0, tbv_fa_gate);
+    end
     reg a, b, cin; wire s, cout; integer i, bad;
     fa_gate u (.a(a), .b(b), .cin(cin), .s(s), .cout(cout));
     initial begin

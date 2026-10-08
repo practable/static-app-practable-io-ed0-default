@@ -22,6 +22,10 @@
 //     vvp tbv_adder4.out
 `timescale 1ns/1ps
 module tbv_adder4;
+    initial begin
+        $dumpfile("dump.vcd");
+        $dumpvars(0, tbv_adder4);
+    end
     reg [3:0] a, b; reg cin; wire [3:0] s; wire cout;
     integer i, bad;
     adder4 u (.a(a), .b(b), .cin(cin), .s(s), .cout(cout));

@@ -25,6 +25,10 @@
 //     vvp tbv_sens.out
 `timescale 1ns/1ns
 module tbv_sens;
+    initial begin
+        $dumpfile("dump.vcd");
+        $dumpvars(0, tbv_sens);
+    end
     reg a, b, sel; wire y;
     sens u (.a(a), .b(b), .sel(sel), .y(y));
     initial begin

@@ -22,6 +22,10 @@
 //     vvp tbv_counter.out
 `timescale 1ns/1ps
 module tbv_counter;
+    initial begin
+        $dumpfile("dump.vcd");
+        $dumpvars(0, tbv_counter);
+    end
     reg clk = 0, rst = 1, en = 0; wire [4:0] q; integer i, bad;
     counter5 u (.clk(clk), .rst(rst), .en(en), .q(q));
     always #5 clk = ~clk;

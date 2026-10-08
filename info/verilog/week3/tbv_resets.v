@@ -22,6 +22,10 @@
 //     vvp tbv_resets.out
 `timescale 1ns/1ns
 module tbv_resets;
+    initial begin
+        $dumpfile("dump.vcd");
+        $dumpvars(0, tbv_resets);
+    end
     reg clk = 0, rst = 0, d = 1;
     wire qs, qa;
     integer t;

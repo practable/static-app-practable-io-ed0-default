@@ -22,6 +22,10 @@
 //     vvp tbv_dff_sync.out
 `timescale 1ns/1ns
 module tbv_dff_sync;
+    initial begin
+        $dumpfile("dump.vcd");
+        $dumpvars(0, tbv_dff_sync);
+    end
     reg clk = 0, rst = 1, d = 0; wire q; integer i;
     dff_sync u (.clk(clk), .rst(rst), .d(d), .q(q));
     always #5 clk = ~clk;

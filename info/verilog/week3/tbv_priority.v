@@ -22,6 +22,10 @@
 //     vvp tbv_priority.out
 `timescale 1ns/1ps
 module tbv_priority;
+    initial begin
+        $dumpfile("dump.vcd");
+        $dumpvars(0, tbv_priority);
+    end
     reg [3:0] r; wire [1:0] y; wire valid; integer i, bad;
     prio u (.r(r), .y(y), .valid(valid));
     initial begin

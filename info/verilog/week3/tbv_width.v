@@ -22,6 +22,10 @@
 //     vvp tbv_width.out
 `timescale 1ns/1ps
 module tbv_width;
+    initial begin
+        $dumpfile("dump.vcd");
+        $dumpvars(0, tbv_width);
+    end
     reg [3:0] a, b;
     wire [3:0] narrow; wire [4:0] wide, boxed, extended;
     integer i, bad;

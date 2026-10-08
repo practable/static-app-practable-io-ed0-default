@@ -22,6 +22,10 @@
 //     vvp tbv_fa_data.out
 `timescale 1ns/1ps
 module tbv_fa_data;
+    initial begin
+        $dumpfile("dump.vcd");
+        $dumpvars(0, tbv_fa_data);
+    end
     reg a, b, cin; wire s, cout; integer i, bad;
     fa_data u (.a(a), .b(b), .cin(cin), .s(s), .cout(cout));
     initial begin

@@ -17,14 +17,6 @@ base: https://app.practable.io/ed0/static/info/verilog/
 images: https://app.practable.io/ed0/static/info/verilog/images/
 
 experiments:
-  # ---- Week 3: Live examples ----
-  - name: "always @(*) gotcha"
-    description: "Expecting a change on something not inside the always block?"
-    image: week3/always.svg
-    design: week3/always.v
-    testbench: week3/tbv_always.v
-    weeks: [3]
-    categories: [live]
   # ---- Week 3: Verilog (lecture examples, verbose practice benches) ----
   - name: "2-to-1 multiplexer"
     description: "Continuous assignment: one line, combinational by construction."
@@ -218,6 +210,14 @@ experiments:
   #   testbench: week3/tb_live_example.v
   #   weeks: [3]
   #   categories: [live]
+
+  - name: "always @(*) gotcha"
+    description: "Expecting a change on something not inside the always block?"
+    image: week3/always.svg
+    design: week3/always.v
+    testbench: week3/tbv_always.v
+    weeks: [3]
+    categories: [live]
 
   # ---- Earlier example (no week or category yet, so it shows under "Other") ----
   - name: 2-to-1 Multiplexer (dataflow)

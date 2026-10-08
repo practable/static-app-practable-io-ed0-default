@@ -1,0 +1,219 @@
+# Experiment list for the ELEE09024 DSD3 verisim directory page.
+# Upload to: https://app.practable.io/ed0/static/info/verilog/manifest.yaml
+# The page reads this file every time it loads, so edits show up straight away.
+
+title: ELEE09024 Digital System Design 3
+# subtitle: Verilog experiments — click a tile to open it in verisim
+# logo: https://app.practable.io/ed0/static/info/verilog/images/practable-logo.png
+
+# Simulator used for every tile. Change this one line to move to a new verisim version.
+# (An experiment can override it with its own `simulator:` field.)
+simulator: https://app.practable.io/ed0/static/ui/verisim-1.0/
+
+# design/testbench paths are relative to `base` (full URLs also work).
+base: https://app.practable.io/ed0/static/info/verilog/
+
+# image paths are relative to `images` (falls back to `base` if this is left out).
+images: https://app.practable.io/ed0/static/info/verilog/images/
+
+experiments:
+  # ---- Week 3: Verilog (lecture examples, verbose practice benches) ----
+  - name: "2-to-1 multiplexer"
+    description: "Continuous assignment: one line, combinational by construction. Slide 3-4."
+    image: week3/mux2.svg
+    design: week3/mux2.v
+    testbench: week3/tbv_mux2.v
+    weeks: [3]
+    categories: [core]
+
+  - name: "4-to-1 multiplexer"
+    description: "Every branch of the case is covered, so no latch is inferred. Slide 3-11."
+    image: week3/mux4.svg
+    design: week3/mux4.v
+    testbench: week3/tbv_mux4.v
+    weeks: [3]
+    categories: [core]
+
+  - name: "Incomplete case: an inferred latch"
+    description: "Deliberately wrong. The 11 branch is missing, so y keeps its previous value when sel=11, which is a latch. Slide 3-12."
+    image: week3/mux4_latch.svg
+    design: week3/mux4_latch.v
+    testbench: week3/tbv_mux4_latch.v
+    weeks: [3]
+    categories: [core]
+
+  - name: "Incomplete sensitivity list"
+    description: "Deliberately wrong. sel is missing from the sensitivity list, so the simulation lags; a synthesiser builds the multiplexer anyway. Slide 3-14."
+    image: week3/sens.svg
+    design: week3/sens.v
+    testbench: week3/tbv_sens.v
+    weeks: [3]
+    categories: [core]
+
+  - name: "Priority encoder with if-else"
+    description: "If-else statements nest into a priority chain, so r[3] wins over everything. Slide 3-16."
+    image: week3/priority.svg
+    design: week3/priority.v
+    testbench: week3/tbv_priority.v
+    weeks: [3]
+    categories: [core]
+
+  - name: "Priority encoder with casez"
+    description: "The default branch is what stops a latch and what reports 'no request'. Slide 3-17."
+    image: week3/casez.svg
+    design: week3/casez.v
+    testbench: week3/tbv_casez.v
+    weeks: [3]
+    categories: [core]
+
+  - name: "Width and signedness gotchas"
+    description: "Width and signedness are decided by the operands, not the target: 3 − 5 in four bits is 14. Slide 3-18."
+    image: week3/gotcha.svg
+    design: week3/gotcha.v
+    testbench: week3/tbv_gotcha.v
+    weeks: [3]
+    categories: [core]
+
+  - name: "Expression widths"
+    description: "The target width extends an addition, but not inside a concatenation. Slide 3-19."
+    image: week3/width.svg
+    design: week3/width.v
+    testbench: week3/tbv_width.v
+    weeks: [3]
+    categories: [core]
+
+  - name: "Full adder: gate primitives"
+    description: "Gate primitives: the netlist written out directly. Slide 3-9."
+    image: week3/fa_gate.svg
+    design: week3/fa_gate.v
+    testbench: week3/tbv_fa_gate.v
+    weeks: [3]
+    categories: [core]
+
+  - name: "Full adder: dataflow"
+    description: "The same full adder, described by what it does rather than how. Slide 3-9."
+    image: week3/fa_data.svg
+    design: week3/fa_data.v
+    testbench: week3/tbv_fa_data.v
+    weeks: [3]
+    categories: [core]
+
+  - name: "4-bit ripple-carry adder"
+    description: "Four instances of one full-adder module, chained through the carries. Slide 3-20."
+    image: week3/adder4.svg
+    design: week3/adder4.v
+    testbench: week3/tbv_adder4.v
+    weeks: [3]
+    categories: [core]
+
+  - name: "4-bit adder: self-checking testbench"
+    description: "All 512 input combinations compared against a + b + cin, with one line of verdict. The shape every bench in this course should take. Slide 3-38."
+    image: week3/adder4_check.svg
+    design: week3/adder4.v
+    testbench: week3/tb_adder4_check.v
+    weeks: [3]
+    categories: [core]
+
+  - name: "Activity 1: sensitivity list, as set"
+    description: "The activity module as set: b is absent from the sensitivity list, so y does not follow it. Slide 3-22."
+    image: week3/act1.svg
+    design: week3/act1.v
+    testbench: week3/tbv_act1.v
+    weeks: [3]
+    categories: [core]
+
+  - name: "Activity 1: fixed with always @*"
+    description: "always @* builds the sensitivity list from the block itself. Slide 3-23."
+    image: week3/act1_fixed.svg
+    design: week3/act1_fixed.v
+    testbench: week3/tbv_act1_fixed.v
+    weeks: [3]
+    categories: [core]
+
+  - name: "D flip-flop with synchronous reset"
+    description: "Reset is sampled on the clock edge like any other input. Slide 3-24."
+    image: week3/dff_sync.svg
+    design: week3/dff_sync.v
+    testbench: week3/tbv_dff_sync.v
+    weeks: [3]
+    categories: [core]
+
+  - name: "Shift register: non-blocking"
+    description: "Three flip-flops: the pulse takes three clocks to reach q3. Slide 3-26."
+    image: week3/shift_nb.svg
+    design: week3/shift_nb.v
+    testbench: week3/tbv_shift_nb.v
+    weeks: [3]
+    categories: [core]
+
+  - name: "Shift register: blocking"
+    description: "The same three lines with blocking assignment build one flip-flop: the pulse reaches q3 on the same clock. Slide 3-27."
+    image: week3/shift_b.svg
+    design: week3/shift_b.v
+    testbench: week3/tbv_shift_b.v
+    weeks: [3]
+    categories: [core]
+
+  - name: "5-bit counter with enable"
+    description: "No else: q holds when en is low, which is what a register does. Slide 3-28."
+    image: week3/counter.svg
+    design: week3/counter.v
+    testbench: week3/tbv_counter.v
+    weeks: [3]
+    categories: [core]
+
+  - name: "Synchronous vs asynchronous reset"
+    description: "A reset pulse shorter than a clock period is invisible to one of these flip-flops. Slide 3-29."
+    image: week3/resets.svg
+    design: week3/resets.v
+    testbench: week3/tbv_resets.v
+    weeks: [3]
+    categories: [core]
+
+  - name: "Sequence detector (week 1 machine)"
+    description: "The machine derived in week 1, coded in the three-block style. Slide 3-32."
+    image: week3/seqdet.svg
+    design: week3/seqdet.v
+    testbench: week3/tbv_seqdet.v
+    weeks: [3]
+    categories: [core]
+
+  - name: "Gray-code counter (week 2 machine)"
+    description: "The machine from the week 2 activity, in the three-block form, with a Moore output. Slide 3-34."
+    image: week3/gray.svg
+    design: week3/gray.v
+    testbench: week3/tbv_gray.v
+    weeks: [3]
+    categories: [core]
+
+  - name: "Activity 2: counter testbench, as set"
+    description: "The bench with its three sections missing. It compiles and runs against the counter and prints nothing, which is what there is to fix. Slide 3-39."
+    image: week3/counter.svg
+    design: week3/counter.v
+    testbench: week3/tb_counter_activity.v
+    weeks: [3]
+    categories: [core]
+
+  - name: "Activity 2: counter testbench, worked"
+    description: "The same bench, worked. It prints one line. Slide 3-40."
+    image: week3/counter.svg
+    design: week3/counter.v
+    testbench: week3/tb_counter_answer.v
+    weeks: [3]
+    categories: [core]
+
+  # ---- Week 3: live examples ----
+  # - name: My live example
+  #   description: One or two sentences shown on the tile.
+  #   image: week3/live_example.svg
+  #   design: week3/live_example.v
+  #   testbench: week3/tb_live_example.v
+  #   weeks: [3]
+  #   categories: [live]
+
+  # ---- Earlier example (no week or category yet, so it shows under "Other") ----
+  - name: 2-to-1 Multiplexer (dataflow)
+    description: A 2-to-1 multiplexer described with a continuous assignment.
+    image: mux_df.svg
+    design: d_mux_df.v
+    testbench: t_mux_df.v

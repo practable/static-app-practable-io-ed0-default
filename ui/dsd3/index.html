@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DSD3 Verilog Experiments</title>
+<link rel="icon" href="https://practable.io/wp-content/uploads/2024/07/cropped-practable-icon-270x270.png">
+<script src="https://cdn.jsdelivr.net/npm/vue@3.4.38/dist/vue.global.prod.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+<style>
+  :root {
+    --bg: #f6f7f9;
+    --surface: #ffffff;
+    --border: #e2e5ea;
+    --text: #1d232b;
+    --muted: #5d6673;
+    --accent: #1f6feb;
+    --accent-soft: #e8f0fe;
+    --chip-on-text: #ffffff;
+    --shadow: 0 1px 2px rgba(16,24,40,.06), 0 1px 3px rgba(16,24,40,.08);
+    --shadow-hover: 0 6px 18px rgba(16,24,40,.12);
+    --img-bg: #ffffff;
+    --warn: #b54708;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #12151a;
+      --surface: #1b2027;
+      --border: #2c333d;
+      --text: #e6e9ee;
+      --muted: #9aa4b2;
+      --accent: #5b9dff;
+      --accent-soft: #1d2b42;
+      --chip-on-text: #0b1220;
+      --shadow: 0 1px 2px rgba(0,0,0,.4);
+      --shadow-hover: 0 6px 18px rgba(0,0,0,.5);
+      --img-bg: #ffffff;
+      --warn: #f79009;
+      color-scheme: dark;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font: 15px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  [v-cloak] { display: none; }
+
+  header.banner {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+  }
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
+  .banner .wrap {
+    display: flex; align-items: center; gap: 20px;
+    min-height: 84px; padding-top: 12px; padding-bottom: 12px;
+  }
+  .banner .logo {
+    height: 46px; width: auto; flex: none;
+    background: #fff; border-radius: 6px; padding: 2px 4px;
+  }
+  .banner h1 { margin: 0; font-size: 1.45rem; font-weight: 650; letter-spacing: -.01em; }
+  .banner .sub { margin: 2px 0 0; color: var(--muted); font-size: .92rem; }
+
+  .filters {
+    position: sticky; top: 0; z-index: 5;
+    background: color-mix(in srgb, var(--bg) 92%, transparent);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--border);
+  }
+  .filters .wrap { padding-top: 14px; padding-bottom: 12px; display: grid; gap: 10px; }
+  .search-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .search {
+    flex: 1 1 280px; min-width: 0;
+    font: inherit; color: var(--text);
+    background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+    padding: 9px 12px;
+  }
+  .search:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: transparent; }
+  .count { color: var(--muted); font-size: .9rem; white-space: nowrap; }
+  .clear {
+    font: inherit; font-size: .9rem; color: var(--accent); background: none;
+    border: 0; padding: 4px 6px; cursor: pointer; border-radius: 6px;
+  }
+  .clear:hover { background: var(--accent-soft); }
+  .chip-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .chip-row .label {
+    width: 78px; flex: none; color: var(--muted); font-size: .82rem;
+    text-transform: uppercase; letter-spacing: .05em; font-weight: 600;
+  }
+  .chip {
+    font: inherit; font-size: .86rem; cursor: pointer;
+    color: var(--text); background: var(--surface);
+    border: 1px solid var(--border); border-radius: 999px; padding: 3px 11px;
+  }
+  .chip:hover { border-color: var(--accent); }
+  .chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--chip-on-text); }
+
+  main .wrap { padding-top: 22px; padding-bottom: 48px; }
+  .grid {
+    display: grid; gap: 18px;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
+  .tile {
+    display: flex; flex-direction: column;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+    overflow: hidden; color: inherit; text-decoration: none;
+    box-shadow: var(--shadow);
+    transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+  }
+  a.tile:hover, a.tile:focus-visible { transform: translateY(-2px); box-shadow: var(--shadow-hover); border-color: var(--accent); }
+  a.tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .tile .img {
+    aspect-ratio: 16 / 10; background: var(--img-bg);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center; overflow: hidden;
+  }
+  .tile .img img { width: 100%; height: 100%; object-fit: contain; padding: 8px; }
+  .placeholder {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2.4rem; font-weight: 700; letter-spacing: .04em;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  .tile .body { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .tile h2 { margin: 0; font-size: 1.04rem; font-weight: 640; line-height: 1.3; }
+  .tile p { margin: 0; color: var(--muted); font-size: .9rem; }
+  .tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: auto; padding-top: 4px; }
+  .tag {
+    font-size: .75rem; padding: 1px 8px; border-radius: 999px;
+    background: var(--accent-soft); color: var(--accent); font-weight: 560;
+  }
+  .tag.week { background: transparent; border: 1px solid var(--border); color: var(--muted); }
+  .warn { color: var(--warn); font-size: .82rem; }
+  .tile.disabled { opacity: .7; }
+
+  .notice {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+    padding: 28px; text-align: center; color: var(--muted);
+  }
+  .notice code { word-break: break-all; color: var(--text); }
+  .notice.error { border-color: var(--warn); }
+
+  @media (max-width: 600px) {
+    .wrap { padding: 0 16px; }
+    .banner .wrap { gap: 14px; min-height: 70px; }
+    .banner .logo { height: 34px; }
+    .banner h1 { font-size: 1.1rem; }
+    .chip-row .label { width: 100%; }
+    .filters { position: static; }
+  }
+</style>
+</head>
+<body>
+<div id="app" v-cloak>
+  <header class="banner">
+    <div class="wrap">
+      <img class="logo" :src="logo" alt="practable">
+      <div>
+        <h1>{{ title }}</h1>
+        <p class="sub">{{ subtitle }}</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="filters" v-if="experiments.length">
+    <div class="wrap">
+      <div class="search-row">
+        <input class="search" type="search" v-model="query"
+               placeholder="Search experiments…" aria-label="Search experiments">
+        <span class="count">Showing {{ filtered.length }} of {{ experiments.length }}</span>
+        <button class="clear" v-if="anyFilter" @click="clearAll">Clear filters</button>
+      </div>
+      <div class="chip-row" v-if="allWeeks.length">
+        <span class="label">Week</span>
+        <button v-for="w in allWeeks" :key="'w'+w" class="chip"
+                :aria-pressed="selWeeks.includes(w)" @click="toggle(selWeeks, w)">{{ w }}</button>
+      </div>
+      <div class="chip-row" v-if="allCats.length > 1">
+        <span class="label">Category</span>
+        <button v-for="c in allCats" :key="'c'+c" class="chip"
+                :aria-pressed="selCats.includes(c)" @click="toggle(selCats, c)">{{ c }}</button>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <div class="wrap">
+      <div v-if="loading" class="notice">Loading experiments…</div>
+
+      <div v-else-if="error" class="notice error">
+        <strong>Couldn't load the experiment list.</strong><br>
+        {{ error }}<br><br>
+        Manifest: <code>{{ manifestUrl }}</code>
+      </div>
+
+      <div v-else-if="!experiments.length" class="notice">The manifest has no experiments yet.</div>
+
+      <div v-else-if="!filtered.length" class="notice">
+        No experiments match these filters.
+        <button class="clear" @click="clearAll">Clear filters</button>
+      </div>
+
+      <div v-else class="grid">
+        <component v-for="e in filtered" :key="e.id"
+                   :is="e.href ? 'a' : 'div'"
+                   :href="e.href || undefined"
+                   :target="e.href ? '_blank' : undefined"
+                   :rel="e.href ? 'noopener' : undefined"
+                   :class="['tile', { disabled: !e.href }]"
+                   :title="e.href ? 'Open ' + e.name + ' in verisim' : ''">
+          <div class="img">
+            <img v-if="e.image && !broken[e.id]" :src="e.image" :alt="e.name" loading="lazy"
+                 @error="broken[e.id] = true">
+            <div v-else class="placeholder" :style="e.placeholderStyle">{{ e.initials }}</div>
+          </div>
+          <div class="body">
+            <h2>{{ e.name }}</h2>
+            <p v-if="e.description">{{ e.description }}</p>
+            <span v-if="!e.href" class="warn">Missing design or testbench in manifest</span>
+            <div class="tags">
+              <span v-for="w in e.weeks" :key="'w'+w" class="tag week">Week {{ w }}</span>
+              <span v-for="c in e.categories" :key="'c'+c" class="tag">{{ c }}</span>
+            </div>
+          </div>
+        </component>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+/* ---- Settings: the only hard-coded values. Everything else comes from the manifest. ---- */
+const DEFAULT_MANIFEST = 'https://app.practable.io/ed0/static/info/verilog/manifest.yaml';
+const DEFAULT_SIMULATOR = 'https://app.practable.io/ed0/static/ui/verisim-1.0/';
+const DEFAULT_TITLE = 'ELEE09024 Digital System Design 3';
+const DEFAULT_SUBTITLE = 'Verilog experiments — click a tile to open the design and testbench in verisim';
+const DEFAULT_LOGO = 'https://practable.io/wp-content/uploads/2024/10/cropped-practable-logo-without-tagline-1-259x86.png';
+const OTHER = 'Other';
+
+const params = new URLSearchParams(location.search);
+// ?manifest=... lets you preview a draft manifest without editing this page.
+const manifestUrl = new URL(params.get('manifest') || DEFAULT_MANIFEST, location.href).href;
+
+function asList(v) {
+  if (v === null || v === undefined || v === '') return [];
+  return [...new Set((Array.isArray(v) ? v : [v])
+    .filter(x => x !== null && x !== undefined)
+    .map(x => String(x).trim())
+    .filter(Boolean))];
+}
+function dir(u) { return u.endsWith('/') ? u : u + '/'; }
+function resolve(path, base) {
+  if (!path) return '';
+  try { return new URL(String(path).trim(), base).href; } catch (e) { return String(path); }
+}
+function weekSort(a, b) {
+  const na = Number(a), nb = Number(b), ia = !isNaN(na), ib = !isNaN(nb);
+  if (ia && ib) return na - nb;
+  if (ia) return -1;
+  if (ib) return 1;
+  return a.localeCompare(b);
+}
+function catSort(a, b) {
+  if (a === OTHER) return 1;
+  if (b === OTHER) return -1;
+  return a.localeCompare(b, undefined, { sensitivity: 'base' });
+}
+function initials(name) {
+  const words = String(name).replace(/[^A-Za-z0-9 ]+/g, ' ').split(/\s+/).filter(Boolean);
+  return (words.slice(0, 3).map(w => w[0]).join('') || '?').toUpperCase();
+}
+function hue(s) { let h = 0; for (const ch of String(s)) h = (h * 31 + ch.charCodeAt(0)) >>> 0; return h % 360; }
+function buildLink(sim, design, testbench) {
+  if (!design || !testbench) return '';
+  const sep = sim.includes('?') ? '&' : '?';
+  return `${sim}${sep}design=${design}&testbench=${testbench}`;
+}
+
+Vue.createApp({
+  data() {
+    return {
+      manifestUrl,
+      loading: true,
+      error: '',
+      title: DEFAULT_TITLE,
+      subtitle: DEFAULT_SUBTITLE,
+      logo: DEFAULT_LOGO,
+      experiments: [],
+      broken: {},
+      query: params.get('q') || '',
+      selWeeks: asList((params.get('week') || '').split(',')),
+      selCats: asList((params.get('category') || '').split(',')),
+    };
+  },
+  computed: {
+    allWeeks() {
+      return [...new Set(this.experiments.flatMap(e => e.weeks))].sort(weekSort);
+    },
+    allCats() {
+      return [...new Set(this.experiments.flatMap(e => e.categories))].sort(catSort);
+    },
+    anyFilter() { return !!(this.query.trim() || this.selWeeks.length || this.selCats.length); },
+    filtered() {
+      const terms = this.query.toLowerCase().split(/\s+/).filter(Boolean);
+      return this.experiments.filter(e => {
+        // Week: show if the experiment has at least one of the selected weeks.
+        // Experiments with no weeks only appear when no week is selected.
+        if (this.selWeeks.length && !e.weeks.some(w => this.selWeeks.includes(w))) return false;
+        if (this.selCats.length && !e.categories.some(c => this.selCats.includes(c))) return false;
+        return terms.every(t => e.haystack.includes(t));
+      });
+    },
+  },
+  watch: {
+    query() { this.syncUrl(); },
+    selWeeks: { handler() { this.syncUrl(); }, deep: true },
+    selCats: { handler() { this.syncUrl(); }, deep: true },
+  },
+  methods: {
+    toggle(list, v) {
+      const i = list.indexOf(v);
+      if (i >= 0) list.splice(i, 1); else list.push(v);
+    },
+    clearAll() { this.query = ''; this.selWeeks.splice(0); this.selCats.splice(0); },
+    syncUrl() {
+      // Keep filters in the address bar so a link like ?week=3 can be shared with students.
+      const p = new URLSearchParams(location.search);
+      const set = (k, v) => v ? p.set(k, v) : p.delete(k);
+      set('q', this.query.trim());
+      set('week', this.selWeeks.join(','));
+      set('category', this.selCats.join(','));
+      const qs = p.toString();
+      history.replaceState(null, '', location.pathname + (qs ? '?' + qs : '') + location.hash);
+    },
+    async load() {
+      try {
+        const res = await fetch(manifestUrl, { cache: 'no-cache' });
+        if (!res.ok) throw new Error(`HTTP ${res.status} ${res.statusText}`);
+        const doc = jsyaml.load(await res.text()) || {};
+        const list = Array.isArray(doc) ? doc : (doc.experiments || []);
+        if (!Array.isArray(list)) throw new Error('"experiments" should be a list.');
+
+        const base = dir(resolve(doc.base || './', manifestUrl));
+        const imageBase = dir(resolve(doc.images || doc.base || './', manifestUrl));
+        const sim = resolve(doc.simulator || DEFAULT_SIMULATOR, manifestUrl);
+        if (doc.title) this.title = String(doc.title);
+        if (doc.subtitle !== undefined) this.subtitle = doc.subtitle ? String(doc.subtitle) : '';
+        if (doc.logo) this.logo = resolve(doc.logo, manifestUrl);
+        document.title = this.title;
+
+        this.experiments = list.filter(x => x && typeof x === 'object').map((x, i) => {
+          const name = String(x.name || x.title || `Experiment ${i + 1}`);
+          const description = x.description ? String(x.description).trim() : '';
+          const weeks = asList(x.weeks ?? x.week).sort(weekSort);
+          let categories = asList(x.categories ?? x.category);
+          if (!categories.length) categories = [OTHER];
+          const design = resolve(x.design, base);
+          const testbench = resolve(x.testbench, base);
+          const h = hue(name);
+          return {
+            id: i, name, description, weeks, categories,
+            image: x.image ? resolve(x.image, imageBase) : '',
+            href: buildLink(resolve(x.simulator || sim, manifestUrl), design, testbench),
+            initials: initials(name),
+            placeholderStyle: { background: `hsl(${h} 45% 92%)`, color: `hsl(${h} 45% 32%)` },
+            haystack: [name, description, ...categories, ...weeks.map(w => 'week ' + w),
+                       x.design, x.testbench].join(' ').toLowerCase(),
+          };
+        });
+        // Drop URL filters that don't exist in this manifest.
+        this.selWeeks = this.selWeeks.filter(w => this.allWeeks.includes(w));
+        this.selCats = this.selCats.filter(c => this.allCats.includes(c));
+      } catch (err) {
+        this.error = err.message || String(err);
+      } finally {
+        this.loading = false;
+      }
+    },
+  },
+  mounted() { this.load(); },
+}).mount('#app');
+</script>
+</body>
+</html>

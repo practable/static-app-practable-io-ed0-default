@@ -219,6 +219,22 @@ experiments:
     weeks: [3]
     categories: [live]
 
+  - name: "Static hazard"
+    description: "z = a·b + a̅·c·d̅ should stay 1 while a changes, but the two terms have different delays, so z glitches to 0 for 12 ns when a falls. Look in the waveform: the printed table never sees it."
+    image: week3/static_hazard.svg
+    design: week3/static_hazard.v
+    testbench: week3/tbv_static_hazard.v
+    weeks: [3]
+    categories: [live]
+
+  - name: "Static hazard fixed: consensus term"
+    description: "The same circuit with the consensus term b·c·d̅ added. It does not change the logic, but it stays 1 while a changes, so z no longer glitches when a falls."
+    image: week3/static_hazard_fixed.svg
+    design: week3/static_hazard_fixed.v
+    testbench: week3/tbv_static_hazard_fixed.v
+    weeks: [3]
+    categories: [live]
+
   # ---- Earlier example (no week or category yet, so it shows under "Other") ----
   - name: 2-to-1 Multiplexer (dataflow)
     description: A 2-to-1 multiplexer described with a continuous assignment.

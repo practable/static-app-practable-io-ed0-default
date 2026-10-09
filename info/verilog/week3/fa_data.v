@@ -1,8 +1,6 @@
 // Digital Systems Design 3 (ELEE09024)  ·  week 3, Verilog
 // fa_data — design
 //
-// slide 3-9
-//
 // The same function, described by what it does rather than how.
 //
 // Run it:

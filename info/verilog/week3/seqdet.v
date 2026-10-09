@@ -1,8 +1,6 @@
 // Digital Systems Design 3 (ELEE09024)  ·  week 3, Verilog
 // seqdet — design
 //
-// slide 3-32
-//
 // The machine derived in week 1, coded in the three-block style.
 //
 // Run it:

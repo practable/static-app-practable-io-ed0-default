@@ -1,14 +1,9 @@
 // Digital Systems Design 3 (ELEE09024)  ·  week 3, Verilog
 // mux2 — verbose testbench
 //
-// slide 3-4
-//
-// The verbose bench for mux2.v. It prints every step rather than
-// the three the slide has room for, the internal signals where an
-// internal signal is the mechanism, and a sentence at the end
-// saying what was shown.
-//
-// tb_mux2.v is the short version, and is the one the lecture shows.
+// The verbose bench for mux2.v. It prints every step, the
+// internal signals where an internal signal is the mechanism,
+// and a sentence at the end saying what was shown.
 //
 // Running it prints 16 lines. The last is:
 //

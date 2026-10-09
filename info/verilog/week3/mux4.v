@@ -1,8 +1,6 @@
 // Digital Systems Design 3 (ELEE09024)  ·  week 3, Verilog
 // mux4 — design
 //
-// slide 3-11
-//
 // Every branch covered, so no latch is inferred.
 //
 // Run it:

@@ -1,8 +1,6 @@
 // Digital Systems Design 3 (ELEE09024)  ·  week 3, Verilog
 // fa_gate — design
 //
-// slide 3-9
-//
 // Gate primitives: the netlist written out directly.
 //
 // Run it:

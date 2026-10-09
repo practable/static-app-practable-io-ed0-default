@@ -1,8 +1,6 @@
 // Digital Systems Design 3 (ELEE09024)  ·  week 3, Verilog
 // dff_sync — design
 //
-// slide 3-24
-//
 // Reset is sampled on the clock edge like any other input.
 //
 // Run it:

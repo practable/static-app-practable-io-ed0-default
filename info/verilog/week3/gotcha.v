@@ -1,8 +1,6 @@
 // Digital Systems Design 3 (ELEE09024)  ·  week 3, Verilog
 // gotcha — design
 //
-// slide 3-18
-//
 // Width and signedness are decided by the operands, not the target.
 //
 // Run it:

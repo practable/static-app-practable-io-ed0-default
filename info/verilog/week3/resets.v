@@ -1,8 +1,6 @@
 // Digital Systems Design 3 (ELEE09024)  ·  week 3, Verilog
 // resets — design
 //
-// slide 3-29
-//
 // A reset pulse shorter than a clock period is invisible to one of
 // these.
 //

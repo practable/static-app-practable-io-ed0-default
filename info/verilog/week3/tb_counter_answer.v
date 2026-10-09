@@ -1,8 +1,6 @@
 // Digital Systems Design 3 (ELEE09024)  ·  week 3, Verilog
 // activity 2 — answer
 //
-// slide 3-40
-//
 // The activity worked: the same bench with its three sections
 // written. Run it against counter.v and it prints one line.
 //

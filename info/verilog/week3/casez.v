@@ -1,8 +1,6 @@
 // Digital Systems Design 3 (ELEE09024)  ·  week 3, Verilog
 // casez — design
 //
-// slide 3-17
-//
 // The default is what stops a latch and what reports 'no request'.
 //
 // Run it:

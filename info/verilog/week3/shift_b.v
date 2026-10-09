@@ -1,8 +1,6 @@
 // Digital Systems Design 3 (ELEE09024)  ·  week 3, Verilog
 // shift_b — design
 //
-// slide 3-27
-//
 // One flip-flop: the pulse reaches q3 on the same clock.
 //
 // Run it:

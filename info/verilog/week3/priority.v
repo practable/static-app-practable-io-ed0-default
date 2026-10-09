@@ -1,8 +1,6 @@
 // Digital Systems Design 3 (ELEE09024)  ·  week 3, Verilog
 // priority — design
 //
-// slide 3-16
-//
 // A priority encoder: if-else nests, so r[3] wins over everything.
 //
 // Run it:

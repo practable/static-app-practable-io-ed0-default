@@ -1,8 +1,6 @@
 // Digital Systems Design 3 (ELEE09024)  ·  week 3, Verilog
 // act1 — design
 //
-// slide 3-22
-//
 // B is absent from the sensitivity list, so y does not follow it.
 //
 // This is the activity module, as set. The transcript shows the

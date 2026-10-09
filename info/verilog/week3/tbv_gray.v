@@ -1,14 +1,9 @@
 // Digital Systems Design 3 (ELEE09024)  ·  week 3, Verilog
 // gray — verbose testbench
 //
-// slide 3-34
-//
-// The verbose bench for gray.v. It prints every step rather than
-// the three the slide has room for, the internal signals where an
-// internal signal is the mechanism, and a sentence at the end
-// saying what was shown.
-//
-// tb_gray.v is the short version, and is the one the lecture shows.
+// The verbose bench for gray.v. It prints every step, the
+// internal signals where an internal signal is the mechanism,
+// and a sentence at the end saying what was shown.
 //
 // Running it prints 23 lines. The last is:
 //

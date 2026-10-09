@@ -1,8 +1,6 @@
 // Digital Systems Design 3 (ELEE09024)  ·  week 3, Verilog
 // width — design
 //
-// slide 3-19
-//
 // The target width extends an addition, but not inside a
 // concatenation.
 //

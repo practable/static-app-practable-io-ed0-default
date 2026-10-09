@@ -1,8 +1,6 @@
 // Digital Systems Design 3 (ELEE09024)  ·  week 3, Verilog
 // sens — design
 //
-// slide 3-14
-//
 // The simulation lags; a synthesiser builds the multiplexer anyway.
 //
 // This design is deliberately wrong. The transcript shows the

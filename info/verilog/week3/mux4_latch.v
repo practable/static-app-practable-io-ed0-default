@@ -1,8 +1,6 @@
 // Digital Systems Design 3 (ELEE09024)  ·  week 3, Verilog
 // mux4_latch — design
 //
-// slide 3-12
-//
 // Y keeps its previous value when sel=11, which is a latch.
 //
 // This design is deliberately wrong. The transcript shows the

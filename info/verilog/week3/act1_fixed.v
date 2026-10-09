@@ -1,8 +1,6 @@
 // Digital Systems Design 3 (ELEE09024)  ·  week 3, Verilog
 // act1_fixed — design
 //
-// slide 3-23
-//
 // Always @* builds the sensitivity list from the block itself.
 //
 // Run it:

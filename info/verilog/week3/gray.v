@@ -1,8 +1,6 @@
 // Digital Systems Design 3 (ELEE09024)  ·  week 3, Verilog
 // gray — design
 //
-// slide 3-34
-//
 // The machine from the week 2 activity, in the three-block form.
 //
 // Run it:

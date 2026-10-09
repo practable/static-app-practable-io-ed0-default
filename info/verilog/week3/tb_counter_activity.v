@@ -1,8 +1,6 @@
 // Digital Systems Design 3 (ELEE09024)  ·  week 3, Verilog
 // activity 2 — skeleton
 //
-// slide 3-39
-//
 // The second activity, as set: a bench for counter.v with three
 // sections to write. It compiles and runs as it stands, and prints
 // nothing, which is the thing to fix.

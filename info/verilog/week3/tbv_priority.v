@@ -1,15 +1,9 @@
 // Digital Systems Design 3 (ELEE09024)  ·  week 3, Verilog
 // priority — verbose testbench
 //
-// slide 3-16
-//
-// The verbose bench for priority.v. It prints every step rather
-// than the three the slide has room for, the internal signals where
-// an internal signal is the mechanism, and a sentence at the end
-// saying what was shown.
-//
-// tb_priority.v is the short version, and is the one the lecture
-// shows.
+// The verbose bench for priority.v. It prints every step, the
+// internal signals where an internal signal is the mechanism,
+// and a sentence at the end saying what was shown.
 //
 // Running it prints 28 lines. The last is:
 //

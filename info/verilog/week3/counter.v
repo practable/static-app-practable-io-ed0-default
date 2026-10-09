@@ -1,8 +1,6 @@
 // Digital Systems Design 3 (ELEE09024)  ·  week 3, Verilog
 // counter — design
 //
-// slide 3-28
-//
 // No else: q holds when en is low, which is what a register does.
 //
 // Run it:

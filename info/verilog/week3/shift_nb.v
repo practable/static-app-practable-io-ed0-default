@@ -1,8 +1,6 @@
 // Digital Systems Design 3 (ELEE09024)  ·  week 3, Verilog
 // shift_nb — design
 //
-// slide 3-26
-//
 // Three flip-flops: the pulse takes three clocks to reach q3.
 //
 // Run it:

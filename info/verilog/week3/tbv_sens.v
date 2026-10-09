@@ -1,14 +1,9 @@
 // Digital Systems Design 3 (ELEE09024)  ·  week 3, Verilog
 // sens — verbose testbench
 //
-// slide 3-14
-//
-// The verbose bench for sens.v. It prints every step rather than
-// the three the slide has room for, the internal signals where an
-// internal signal is the mechanism, and a sentence at the end
-// saying what was shown.
-//
-// tb_sens.v is the short version, and is the one the lecture shows.
+// The verbose bench for sens.v. It prints every step, the
+// internal signals where an internal signal is the mechanism,
+// and a sentence at the end saying what was shown.
 //
 // This design is deliberately wrong. The transcript shows the
 // simulation ignoring sel; a synthesiser would build the

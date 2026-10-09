@@ -1,8 +1,6 @@
 // Digital Systems Design 3 (ELEE09024)  ·  week 3, Verilog
 // mux2 — design
 //
-// slide 3-4
-//
 // Continuous assignment: one line, combinational by construction.
 //
 // Run it:

@@ -1,8 +1,6 @@
 // Digital Systems Design 3 (ELEE09024)  ·  week 3, Verilog
 // adder4 — testbench
 //
-// slide 3-36
-//
 // A second testbench for adder4.v: the self-checking bench: every
 // one of the 512 input combinations compared against a + b + cin,
 // and one line of verdict.

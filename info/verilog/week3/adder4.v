@@ -1,8 +1,6 @@
 // Digital Systems Design 3 (ELEE09024)  ·  week 3, Verilog
 // adder4 — design
 //
-// slide 3-20
-//
 // Four instances of one module; exhaustively checked.
 //
 // Modules in this file: fa_data, adder4. adder4 is the design; the

@@ -17,6 +17,13 @@ base: https://app.practable.io/ed0/static/info/verilog/
 images: https://app.practable.io/ed0/static/info/verilog/images/
 
 experiments:
+  # ---- All weeks: a blank simulator (no design or testbench) ----
+  - name: "Blank VeriSim"
+    description: "Opens VeriSim with no design or testbench loaded, ready for your own code."
+    image: blank.svg
+    weeks: all
+    categories: [core]
+
   # ---- Week 3: Verilog (lecture examples, verbose practice benches) ----
   - name: "2-to-1 multiplexer"
     description: "Continuous assignment: one line, combinational by construction."
@@ -234,6 +241,158 @@ experiments:
     testbench: week3/tbv_static_hazard_fixed.v
     weeks: [3]
     categories: [live]
+
+  # ---- Week 3: problem set 3, problems (testbench only: students write the design) ----
+  - name: "Problem 3.1: 1-bit 2-to-1 multiplexer"
+    description: "Write the design, then run it against this testbench. Use this header: module ps3_mux2 (input a, b, sel, output y). The transcript ends PASS or FAIL."
+    image: week3/ps3_1_mux2_problem.svg
+    testbench: week3/tbv_ps3_1_mux2.v
+    weeks: [3]
+    categories: [problems]
+
+  - name: "Problem 3.2: 4-bit 2-to-1 multiplexer"
+    description: "Write the design, then run it against this testbench. Use this header: module ps3_mux2x4 (input [3:0] a, b, input sel, output [3:0] y). The transcript ends PASS or FAIL."
+    image: week3/ps3_2_mux2x4_problem.svg
+    testbench: week3/tbv_ps3_2_mux2x4.v
+    weeks: [3]
+    categories: [problems]
+
+  - name: "Problem 3.3: 1-bit 4-to-1 multiplexer (case)"
+    description: "Write the design, then run it against this testbench. Use this header: module ps3_mux4 (input [3:0] d, input [1:0] sel, output reg y). The transcript ends PASS or FAIL."
+    image: week3/ps3_3_mux4_problem.svg
+    testbench: week3/tbv_ps3_3_mux4.v
+    weeks: [3]
+    categories: [problems]
+
+  - name: "Problem 3.4: 8-bit 4-to-1 multiplexer"
+    description: "Write the design, then run it against this testbench. Use this header: module ps3_mux4x8 (input [7:0] d0, d1, d2, d3, input [1:0] sel, output reg [7:0] y). The transcript ends PASS or FAIL."
+    image: week3/ps3_4_mux4x8_problem.svg
+    testbench: week3/tbv_ps3_4_mux4x8.v
+    weeks: [3]
+    categories: [problems]
+
+  - name: "Problem 3.5: 8-to-3 binary encoder"
+    description: "Write the design, then run it against this testbench. Use this header: module ps3_enc8to3 (input [7:0] a, output reg [2:0] y). The transcript ends PASS or FAIL."
+    image: week3/ps3_5_enc8to3_problem.svg
+    testbench: week3/tbv_ps3_5_enc8to3.v
+    weeks: [3]
+    categories: [problems]
+
+  - name: "Problem 3.6: 5-bit counter, synchronous reset"
+    description: "Write the design, then run it against this testbench. Use this header: module ps3_count5 (input clk, rst, output reg [4:0] q). The transcript ends PASS or FAIL."
+    image: week3/ps3_6_count5_problem.svg
+    testbench: week3/tbv_ps3_6_count5.v
+    weeks: [3]
+    categories: [problems]
+
+  - name: "Problem 3.7: 5-bit up/down counter"
+    description: "Write the design, then run it against this testbench. Use this header: module ps3_updown5 (input clk, rst, up, output reg [4:0] q). The transcript ends PASS or FAIL."
+    image: week3/ps3_7_updown5_problem.svg
+    testbench: week3/tbv_ps3_7_updown5.v
+    weeks: [3]
+    categories: [problems]
+
+  - name: "Problem 3.8(a): shift register: find the fault"
+    description: "Paste the module from the problem sheet as the design and run it to reproduce the transcript. Then fix the one fault until the testbench reports PASS."
+    image: week3/ps3_8a_shift3_problem.svg
+    testbench: week3/tbv_ps3_8a_shift3.v
+    weeks: [3]
+    categories: [problems]
+
+  - name: "Problem 3.8(b): 4-bit adder: find the fault"
+    description: "Paste the module from the problem sheet as the design and run it to reproduce the transcript. Then fix the one fault until the testbench reports PASS."
+    image: week3/ps3_8b_add4_problem.svg
+    testbench: week3/tbv_ps3_8b_add4.v
+    weeks: [3]
+    categories: [problems]
+
+  - name: "Problem 3.8(c): three-way selector: find the fault"
+    description: "Paste the module from the problem sheet as the design and run it to reproduce the transcript. Then fix the one fault until the testbench reports PASS."
+    image: week3/ps3_8c_sel3_problem.svg
+    testbench: week3/tbv_ps3_8c_sel3.v
+    weeks: [3]
+    categories: [problems]
+
+  # ---- Week 3: problem set 3, solutions (design and testbench) ----
+  - name: "Solution 3.1: 1-bit 2-to-1 multiplexer"
+    description: "One continuous assignment. Every signal is a wire: nothing is assigned in an always block."
+    image: week3/ps3_1_mux2.svg
+    design: week3/ps3_1_mux2.v
+    testbench: week3/tbv_ps3_1_mux2.v
+    weeks: [3]
+    categories: [solutions]
+
+  - name: "Solution 3.2: 4-bit 2-to-1 multiplexer"
+    description: "3.1 with [3:0] added to a, b and y. The assign line and the one-bit sel are unchanged."
+    image: week3/ps3_2_mux2x4.svg
+    design: week3/ps3_2_mux2x4.v
+    testbench: week3/tbv_ps3_2_mux2x4.v
+    weeks: [3]
+    categories: [solutions]
+
+  - name: "Solution 3.3: 1-bit 4-to-1 multiplexer (case)"
+    description: "A four-branch case. The default branch covers a selector containing x or z, which only exists in simulation."
+    image: week3/ps3_3_mux4.svg
+    design: week3/ps3_3_mux4.v
+    testbench: week3/tbv_ps3_3_mux4.v
+    weeks: [3]
+    categories: [solutions]
+
+  - name: "Solution 3.4: 8-bit 4-to-1 multiplexer"
+    description: "3.3 with four 8-bit data inputs and an 8-bit output. The case statement keeps the same shape."
+    image: week3/ps3_4_mux4x8.svg
+    design: week3/ps3_4_mux4x8.v
+    testbench: week3/tbv_ps3_4_mux4x8.v
+    weeks: [3]
+    categories: [solutions]
+
+  - name: "Solution 3.5: 8-to-3 binary encoder"
+    description: "The eight truth-table rows as a case. The default makes the other 248 inputs an explicit don't care; leaving it out would infer a latch."
+    image: week3/ps3_5_enc8to3.svg
+    design: week3/ps3_5_enc8to3.v
+    testbench: week3/tbv_ps3_5_enc8to3.v
+    weeks: [3]
+    categories: [solutions]
+
+  - name: "Solution 3.6: 5-bit counter, synchronous reset"
+    description: "Counts 0 to 31, then wraps to 0. Nothing extra is written: the five-bit width of q drops the carry."
+    image: week3/ps3_6_count5.svg
+    design: week3/ps3_6_count5.v
+    testbench: week3/tbv_ps3_6_count5.v
+    weeks: [3]
+    categories: [solutions]
+
+  - name: "Solution 3.7: 5-bit up/down counter"
+    description: "Counts up when up = 1 and down when up = 0, wrapping both ways, with a synchronous reset to zero."
+    image: week3/ps3_7_updown5.svg
+    design: week3/ps3_7_updown5.v
+    testbench: week3/tbv_ps3_7_updown5.v
+    weeks: [3]
+    categories: [solutions]
+
+  - name: "Solution 3.8(a): shift register, corrected"
+    description: "The fault was blocking assignments in a clocked block, which moved d through all three bits in one clock. Non-blocking fixes it."
+    image: week3/ps3_8a_shift3.svg
+    design: week3/ps3_8a_shift3.v
+    testbench: week3/tbv_ps3_8a_shift3.v
+    weeks: [3]
+    categories: [solutions]
+
+  - name: "Solution 3.8(b): 4-bit adder, corrected"
+    description: "The fault was a four-bit sum, which lost the carry before the comparison. {cout, sum} = a + b makes the result five bits wide."
+    image: week3/ps3_8b_add4.svg
+    design: week3/ps3_8b_add4.v
+    testbench: week3/tbv_ps3_8b_add4.v
+    weeks: [3]
+    categories: [solutions]
+
+  - name: "Solution 3.8(c): three-way selector, corrected"
+    description: "The fault was a case with no branch for sel = 11, which inferred a latch. A default branch fixes it."
+    image: week3/ps3_8c_sel3.svg
+    design: week3/ps3_8c_sel3.v
+    testbench: week3/tbv_ps3_8c_sel3.v
+    weeks: [3]
+    categories: [solutions]
 
   # ---- Earlier example (no week or category yet, so it shows under "Other") ----
   - name: 2-to-1 Multiplexer (dataflow)

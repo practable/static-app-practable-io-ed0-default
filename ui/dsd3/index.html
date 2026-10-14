@@ -220,8 +220,8 @@
           <div class="body">
             <h2>{{ e.name }}</h2>
             <p v-if="e.description">{{ e.description }}</p>
-            <span v-if="!e.href" class="warn">Missing design or testbench in manifest</span>
             <div class="tags">
+              <span v-if="e.everyWeek" class="tag week">All weeks</span>
               <span v-for="w in e.weeks" :key="'w'+w" class="tag week">Week {{ w }}</span>
               <span v-for="c in e.categories" :key="'c'+c" class="tag">{{ c }}</span>
             </div>
@@ -275,10 +275,17 @@ function initials(name) {
 }
 function hue(s) { let h = 0; for (const ch of String(s)) h = (h * 31 + ch.charCodeAt(0)) >>> 0; return h % 360; }
 function buildLink(sim, design, testbench) {
-  if (!design || !testbench) return '';
+  // Add only the files the manifest gives. With neither, VeriSim opens empty.
+  const q = [];
+  if (design) q.push(`design=${design}`);
+  if (testbench) q.push(`testbench=${testbench}`);
+  if (!q.length) return sim;
   const sep = sim.includes('?') ? '&' : '?';
-  return `${sim}${sep}design=${design}&testbench=${testbench}`;
+  return `${sim}${sep}${q.join('&')}`;
 }
+// weeks: all (or "any" / "*") puts a tile under every week filter without adding week chips.
+const ALL_WEEKS = ['all', 'any', '*'];
+function isAllWeeks(v) { return ALL_WEEKS.includes(String(v).trim().toLowerCase()); }
 
 Vue.createApp({
   data() {
@@ -308,8 +315,9 @@ Vue.createApp({
       const terms = this.query.toLowerCase().split(/\s+/).filter(Boolean);
       return this.experiments.filter(e => {
         // Week: show if the experiment has at least one of the selected weeks.
-        // Experiments with no weeks only appear when no week is selected.
-        if (this.selWeeks.length && !e.weeks.some(w => this.selWeeks.includes(w))) return false;
+        // Experiments with no weeks only appear when no week is selected;
+        // experiments with weeks: all appear under every week.
+        if (this.selWeeks.length && !e.everyWeek && !e.weeks.some(w => this.selWeeks.includes(w))) return false;
         if (this.selCats.length && !e.categories.some(c => this.selCats.includes(c))) return false;
         return terms.every(t => e.haystack.includes(t));
       });
@@ -355,19 +363,22 @@ Vue.createApp({
         this.experiments = list.filter(x => x && typeof x === 'object').map((x, i) => {
           const name = String(x.name || x.title || `Experiment ${i + 1}`);
           const description = x.description ? String(x.description).trim() : '';
-          const weeks = asList(x.weeks ?? x.week).sort(weekSort);
+          const rawWeeks = asList(x.weeks ?? x.week);
+          const everyWeek = rawWeeks.some(isAllWeeks);
+          const weeks = everyWeek ? [] : rawWeeks.sort(weekSort);
           let categories = asList(x.categories ?? x.category);
           if (!categories.length) categories = [OTHER];
           const design = resolve(x.design, base);
           const testbench = resolve(x.testbench, base);
           const h = hue(name);
           return {
-            id: i, name, description, weeks, categories,
+            id: i, name, description, weeks, everyWeek, categories,
             image: x.image ? resolve(x.image, imageBase) : '',
             href: buildLink(resolve(x.simulator || sim, manifestUrl), design, testbench),
             initials: initials(name),
             placeholderStyle: { background: `hsl(${h} 45% 92%)`, color: `hsl(${h} 45% 32%)` },
             haystack: [name, description, ...categories, ...weeks.map(w => 'week ' + w),
+                       everyWeek ? 'all weeks' : '',
                        x.design, x.testbench].join(' ').toLowerCase(),
           };
         });
